@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang=ru>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Главная</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    html { height: 100%; }
+    body {
+      margin: 0; /* Убираем отступы */
+      height: 100%; /* Высота страницы */
+      background-color: green; /* Параметры фона */
+      background-size: cover; /* Фон занимает всю доступную площадь */
+    }
+  </style>
+  <script src="https://maps.api.2gis.ru/2.0/loader.js"></script>
+</head>
+<body class="w3-light-grey">
+<div class="w3-container w3-blue-grey w3-opacity w3-right-align">
+  <h1></h1>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<input id="ip" type="button" value="показать что то">
+<div id="myip"></div>
+<script src="/javascripts/1.js"></script>
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+<script>
+    DG.then(function() {
+        var map,
+            myIcon,
+            myDivIcon;
+
+        map = DG.map('map', {
+            center: [52.284404, 104.295782],
+            zoom: 13
+        });
+
+        myIcon = DG.icon({
+            iconUrl: 'https://maps.api.2gis.ru/2.0/example_logo.png',
+            iconSize: [48, 48]
+        });
+        DG.marker([52.284404, 104.295782], {
+            icon: myIcon
+        }).addTo(map);
+
+        myDivIcon = DG.divIcon({
+            iconSize: [52, 17],
+            html: '<b style="color:blue;">HTML-код</b>'
+        });
+        DG.marker([0, 0], {
+            icon: myDivIcon
+        }).addTo(map);
+    });
+
+</script>
+
+</body>
+</html>
